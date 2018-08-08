@@ -5,7 +5,7 @@ module.exports = {
         user: 'siyaphat',
         password: 'labelcomendymock',
         port: 3306,
-        database: 'projit',
+        database: 'arts_lampang',
         multipleStatements: true
     },
     emailOption:{

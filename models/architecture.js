@@ -5,9 +5,12 @@ exports.findById = (req,res,next)=>{
     var exam_id = parseInt(req.params.exam_id);
     req.getConnection((err, connection)=>{
         if(err) return next(err);
-        connection.query("SELECT * FROM course_exam WHERE course_id =? AND exam_id=? ",[course_id, exam_id], (err, results)=>{
+        connection.query(`SELECT category.*, knowledge.*, maindetail.* FROM knowledge LEFT  JOIN category ON knowledge.id_cat = category.id 
+                            LEFT JOIN maindetail ON knowledge.id_kn = maindetail.id_md WHERE knowledge.id_cat = 1 LIMIT  100
+                            
+        `, (err, results)=>{
             if(err) return next(err);
-            res.send(results[0]);
+            res.send(results);
         })
     })
 }
