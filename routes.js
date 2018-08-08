@@ -2,18 +2,17 @@ const passport = require('passport'); // มันสำคัญที่สุ
 
 const architectures = require(`./models/architecture`)
 const random = require(`./models/random`)
+// const myGraphQLSchema = require('./schema')
+
 module.exports = function(app) {
 
     app.get('/', function(req, res){
         res.send({message: 'art lampangluang api'})
-        req.getConnection((err, connection)=>{
-            connection.query('USE mysql', function(err) {
-                //if (err) throw err;
-                console.log(err);
-                res.send('Query Successful');   
-              });
-        })
+       
     })
+
+    
+
     app.get(`/knowledge`, random.find)
     app.get(`/architecture`, architectures.findById);
     

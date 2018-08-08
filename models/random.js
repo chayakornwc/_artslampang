@@ -1,5 +1,6 @@
 const config = require('../config');
 
+
 exports.find = (req,res,next)=>{
     var course_id = parseInt(req.params.course_id);
     var exam_id = parseInt(req.params.exam_id);
